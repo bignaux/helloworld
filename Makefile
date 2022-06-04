@@ -1,10 +1,12 @@
 APP_NAME = helloworld
+APP_VERSION := 1
+# $(shell git describe --tags --abbrev=0)
 
 EE_BIN_PKD = $(APP_NAME).elf
 EE_BIN = $(APP_NAME)-UNC.elf
 EE_OBJS = $(APP_NAME).o
 EE_LIBS = -ldebug -lc
-EE_INCS = -DAPP_NAME=\"$(APP_NAME)\"
+EE_CFLAGS += -DAPP_VERSION=\"$(APP_VERSION)\" -DAPP_NAME=\"$(APP_NAME)\"
 
 #PS2HOSTNAME = 192.168.1.10
 

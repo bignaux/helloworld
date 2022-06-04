@@ -7,32 +7,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: ps2dev/ps2dev:latest
-    # instead of "ps2dev/ps2dev:latest" you can use different tags, for example for old projects you can use "ps2dev/ps2dev:v1.0"
     steps:
-    - name: Install dependencies
-      run: |
-        apk add build-base git zip
-
-    - uses: actions/checkout@v2
-    - run: |
-        git fetch --prune --unshallow
-
+    - uses: actions/checkout@master
     - name: Compile project
       run: |
-        make
+        docker compose -f docker-compose.yml run -e DEBUG=1 build
     # commands for compiling your project
-        
+
     # - name: Prepare artifacts
         # zip *.elf
         # create realease archive
-        
+
     - name: Get short SHA and repository name
       id: slug
       run: |
         echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
         echo "::set-output name=REPOSITORY_NAME::$(echo "$GITHUB_REPOSITORY" | awk -F / '{print $2}' | sed -e "s/:refs//")"
-  
+
     - name: Upload artifacts
       if: ${{ success() }}
       uses: actions/upload-artifact@v2
@@ -40,7 +31,6 @@ jobs:
         name: ${{ steps.slug.outputs.REPOSITORY_NAME }}-${{ steps.slug.outputs.sha8 }}
         path: |
           *.elf
-          *.ELF
     # 'path' will create artifact with all *.elf in working directory
     # you can change this
 
@@ -54,7 +44,5 @@ jobs:
         title: "Latest development build"
         files: |
           *.elf
-          *.ELF
     # 'files' will create release with all *.elf in working directory
     # you can change this
- 

@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     }
 
     init_scr();
-    scr_printf("Hello, World!\n");
+    scr_printf("Hello, World from %s v.%s !\n", APP_NAME, APP_VERSION);
 
     SleepThread();
     return 0;
