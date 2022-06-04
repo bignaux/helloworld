@@ -12,9 +12,8 @@ It uses [ps2homebrew's .github](https://github.com/ps2homebrew/.github) as base 
 
 ## build instruction
 
-using docker-compose :
+using docker compose :
 
 ```sh
-docker-compose up
 docker compose run -e DEBUG=1 build
 ```

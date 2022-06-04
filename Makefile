@@ -1,6 +1,5 @@
 APP_NAME = helloworld
-APP_VERSION := 1
-# $(shell git describe --tags --abbrev=0)
+APP_VERSION := $(shell git describe --always --tags)
 
 EE_BIN_PKD = $(APP_NAME).elf
 EE_BIN = $(APP_NAME)-UNC.elf
