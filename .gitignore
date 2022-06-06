@@ -21,15 +21,18 @@
 *.zip
 *.ZIP
 *.a
+*.iso
 
 #
 # files that we don't want to ignore
 #
 !.gitignore
+!.gitmodules
 !.gitattributes
 !.github
 !.editorconfig
 !.clang-format
+!.clang-format-ignore
 
 #
 # Generated source files

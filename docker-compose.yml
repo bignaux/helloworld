@@ -1,12 +1,16 @@
 version: "3.9"
 services:
-  build:
-    build: .
+  make:
+    # this allows to not invoke `docker build .``
+    build:
+      context: .
+    container_name: helloworld
     # see https://github.com/compose-spec/compose-spec/issues/94
     user: ${CURRENT_UID}
-    working_dir: /code
+    working_dir: /app
     environment:
       - PS2HOSTNAME=192.168.1.10
-    command: ["make", "all"]
+      - makeargs
+    command: make $makeargs
     volumes:
-      - ${PWD}:/code
+      - ${PWD}:/app

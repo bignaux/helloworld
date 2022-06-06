@@ -9,15 +9,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+      with:
+        submodules: recursive
+
+    - name: Run clang-format Linter
+      continue-on-error: true
+      run: makeargs=check docker compose up
+
     - name: Compile project
-      run: |
-        docker compose -f docker-compose.yml run -e DEBUG=1 build
+      run: docker compose up
     # commands for compiling your project
 
     # - name: Prepare artifacts
         # zip *.elf
         # create realease archive
-
     - name: Get short SHA and repository name
       id: slug
       run: |
@@ -26,7 +31,7 @@ jobs:
 
     - name: Upload artifacts
       if: ${{ success() }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: ${{ steps.slug.outputs.REPOSITORY_NAME }}-${{ steps.slug.outputs.sha8 }}
         path: |
