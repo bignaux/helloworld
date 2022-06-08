@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- see https://gerrit.googlesource.com/git-repo/+/master/docs/manifest-format.md -->
 <manifest>
-  <!-- Repositories (PS2/PSP) -->
+
   <remote name="ps2max"      fetch="https://gitlab.com/ps2max" />
   <remote name="ps2dev"      fetch="https://github.com/ps2dev" />
   <remote name="pspdev"      fetch="https://github.com/pspdev" />
@@ -12,12 +13,9 @@
   <remote name="github"      fetch="https://github.com" />
 
   <!-- build Tools -->
-  <project path="tools/clang-format-lint-action" name="DoozyX/clang-format-lint-action" revision="master" remote="github"/>
+  <project path="tools/clang-format-lint-action.git" name="DoozyX/clang-format-lint-action" revision="master" remote="github"/>
 
   <!-- Tools -->
-  <project path="tools/ps2client"        name="ps2client.git"       revision="master"            remote="ps2dev" />
-  <project path="tools/ps2-packer"       name="ps2-packer.git"      revision="master"            remote="ps2dev" />
-
   <project path="libs/lwnbd"       name="lwnbd.git"      revision="master"            remote="bignaux" />
   <project path="assets/opl-lng"   name="Open-PS2-Loader-lang.git"      revision="main"            remote="ps2homebrew" />
 
