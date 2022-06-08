@@ -12,7 +12,7 @@
   <remote name="github"      fetch="https://github.com" />
 
   <!-- build Tools -->
-  <project path="tools/clang-format-lint-action" name="DoozyX/clang-format-lint-action" remote="github"/>
+  <project path="tools/clang-format-lint-action" name="DoozyX/clang-format-lint-action" revision="master" remote="github"/>
 
   <!-- Tools -->
   <project path="tools/ps2client"        name="ps2client.git"       revision="master"            remote="ps2dev" />
