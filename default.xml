@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- Repositories (PS2/PSP) -->
+  <remote name="ps2max"      fetch="https://gitlab.com/ps2max" />
+  <remote name="ps2dev"      fetch="https://github.com/ps2dev" />
+  <remote name="pspdev"      fetch="https://github.com/pspdev" />
+  <remote name="ps2homebrew" fetch="https://github.com/ps2homebrew" />
+  <remote name="AKuHAK"      fetch="https://github.com/AKuHAK" />
+  <remote name="frno7"       fetch="https://github.com/frno7"  />
+  <remote name="fjtrujy"     fetch="https://github.com/fjtrujy" />
+  <remote name="bignaux"     fetch="https://github.com/bignaux" />
+  <remote name="github"      fetch="https://github.com" />
+
+  <!-- build Tools -->
+  <project path="tools/clang-format-lint-action" name="DoozyX/clang-format-lint-action" />
+
+  <!-- Tools -->
+  <project path="tools/ps2client"        name="ps2client.git"       revision="master"            remote="ps2dev" />
+  <project path="tools/ps2-packer"       name="ps2-packer.git"      revision="master"            remote="ps2dev" />
+
+  <project path="libs/lwnbd"       name="lwnbd.git"      revision="master"            remote="bignaux" />
+  <project path="assets/opl-lng"   name="Open-PS2-Loader-lang.git"      revision="main"            remote="ps2homebrew" />
+
+</manifest>

@@ -17,5 +17,10 @@ using `docker compose` :
     docker compose up
 
 TODO:
-*CI/docker strategy
-*git submodule workflow
+*   document CI/docker strategy
+*   introducing $GIT_WORKSPACE
+
+*   `git submodule` : when you want shared component, that not you want to add them in each project.
+*   `[git-workspace]`(https://github.com/orf/git-workspace) : not project centric, you can't specifying individual
+ repos [#171](https://github.com/orf/git-workspace/issues/171) . Interesting tool anyway. Could be use to maintain
+ ps2dev or ps2homebrew docker volume, allows to be used as shared workspace.
