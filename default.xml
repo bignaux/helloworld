@@ -15,8 +15,14 @@
   <!-- build Tools -->
   <project path="tools/clang-format-lint-action.git" name="DoozyX/clang-format-lint-action" revision="master" remote="github"/>
 
-  <!-- Tools -->
+  <!-- Libraries (PS2/PSP) -->
   <project path="libs/lwnbd"       name="lwnbd.git"      revision="master"            remote="bignaux" />
+
+  <!-- Applications -->
+  <project path="apps/helloworld"       name="helloworld.git"      revision="master"            remote="bignaux" />
+  <project path="apps/open-ps2-loader"   name="Open-PS2-Loader.git" revision="master"            remote="ps2homebrew" />
+
+  <!-- Assets -->
   <project path="assets/opl-lng"   name="Open-PS2-Loader-lang.git"      revision="main"            remote="ps2homebrew" />
 
 </manifest>

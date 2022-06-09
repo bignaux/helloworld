@@ -3,6 +3,8 @@
 FROM ps2dev/ps2dev:latest
 # need testing for repo
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && apk update
-RUN apk add --no-cache build-base git zip gawk ripgrep tzdata python3 py3-pip repo gpg
+RUN apk add --no-cache build-base git zip gawk ripgrep tzdata python3 py3-pip repo gpg openssh
 #ln -snf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 RUN git config --global --add safe.directory /app
+RUN git config --global user.email "you@example.com"
+RUN git config --global user.name "Your Name"

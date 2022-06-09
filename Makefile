@@ -1,4 +1,4 @@
-APP_NAME = helloworld
+APP_NAME := helloworld
 APP_VERSION := $(shell git describe --always --tags)
 DEBUG = 1
 TEST = 1

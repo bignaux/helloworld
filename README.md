@@ -23,10 +23,17 @@ just run `docker compose` :
 
 ## PS2_WORKSPACE
 
+issue :
+
+*   copy/paste code and ...
+*   ps2sdk as central code repository
+*   custom script downloading component
+
     repo init -q --no-clone-bundle -u https://github.com/bignaux/helloworld.git
 
-*   `git submodule` : when you want shared component, that not you want to add them in each project.
+*   git submodule : when you want shared component, that not you want to add them in each project.
  It has already annoyed many contributors here.
-*   `[git-workspace]`(https://github.com/orf/git-workspace) : not project centric, you can't specifying individual
+*   [git-workspace](https://github.com/orf/git-workspace) : not project centric, you can't specifying individual
  repos [#171](https://github.com/orf/git-workspace/issues/171) . Interesting tool anyway. Could be use to maintain
  ps2dev or ps2homebrew docker volume, allows to be used as shared workspace.
+*   [clowder](https://clowder.cat/)
