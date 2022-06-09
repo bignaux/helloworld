@@ -16,7 +16,14 @@ just run `docker compose` :
 
     docker compose up make
 
-## CI/docker strategy & workflow
+## CI/CD strategy and docker workflow
+
+minimise code in github action to avoid :
+-   possible issue from difference between developer and github environment
+-   specific code on github actions
+-   need git push
+
+Use dockerfile to specify image, prefere docker compose services to jobs.
 
     docker build . -t helloworld
     docker run --env-file .env -it -w /app -v "$(pwd)":/app helloworld:latest
@@ -25,15 +32,17 @@ just run `docker compose` :
 
 issue :
 
-*   copy/paste code and ...
-*   ps2sdk as central code repository
-*   custom script downloading component
+-   copy/paste code and ...
+-   ps2sdk as central code repository
+-   custom script downloading component
+
 
     repo init -q --no-clone-bundle -u https://github.com/bignaux/helloworld.git
 
-*   git submodule : when you want shared component, that not you want to add them in each project.
+some alternatives :
+-   git submodule : when you want shared component, that not you want to add them in each project.
  It has already annoyed many contributors here.
-*   [git-workspace](https://github.com/orf/git-workspace) : not project centric, you can't specifying individual
+-   [git-workspace](https://github.com/orf/git-workspace) : not project centric, you can't specifying individual
  repos [#171](https://github.com/orf/git-workspace/issues/171) . Interesting tool anyway. Could be use to maintain
  ps2dev or ps2homebrew docker volume, allows to be used as shared workspace.
-*   [clowder](https://clowder.cat/)
+-   [clowder](https://clowder.cat/)

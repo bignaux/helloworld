@@ -8,13 +8,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-      with:
-        submodules: recursive
+    #- uses: actions/checkout@master
+    #  with:
+    #    submodules: recursive
+
+    - name: Git Checkout
+      run: docker compose up repo
 
     - name: Run clang-format Linter
       continue-on-error: true
-      run: makeargs=check docker compose up
+      run: MAKE_ARGS=check docker compose up
 
     - name: Compile project
       run: docker compose up
