@@ -7,16 +7,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <tap.h>
-
-// TODO ; make standard macro available from ps2sdk
-#ifdef DEBUG
-#define LOG(format, args...) \
-    printf("[" APP_NAME "] " format, ##args)
-#else
-#define LOG(args...) \
-    do {             \
-    } while (0)
-#endif
+#include "ps2log.h"
 
 // demo of strings
 // from https://stackoverflow.com/a/4681415
@@ -57,12 +48,14 @@ static void printWelcomeInfo(int argc, char **argv)
 int main(int argc, char *argv[])
 {
     // SifInitRpc(0);
+    LOG_INIT();
+
     printWelcomeInfo(argc, argv);
     plan(5);
     is(argv[0], "host:helloworld.elf", "running from ps2link");
 
     init_scr();
-    scr_printf("Hello, World from %s v.%s !\n", APP_NAME, APP_VERSION);
+    LOG("Hello, World fr00000m %s v.%s !\n", APP_NAME, APP_VERSION);
 
     SleepThread();
     return 0;

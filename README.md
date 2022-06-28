@@ -25,6 +25,7 @@ minimise code in github action to avoid :
 
 Use dockerfile to specify image, prefere docker compose services to jobs.
 
+    docker pull ps2dev/ps2dev
     docker build . -t helloworld
     docker run --env-file .env -it -w /app -v "$(pwd)":/app helloworld:latest
 
@@ -33,8 +34,9 @@ Use dockerfile to specify image, prefere docker compose services to jobs.
 issue :
 
 -   copy/paste code and ...
--   ps2sdk as central code repository
+-   ps2sdk and ps2sdk-ports as central code repositories
 -   custom script downloading component
+
 
 
     repo init -q --no-clone-bundle -u https://github.com/bignaux/helloworld.git
@@ -45,4 +47,4 @@ some alternatives :
 -   [git-workspace](https://github.com/orf/git-workspace) : not project centric, you can't specifying individual
  repos [#171](https://github.com/orf/git-workspace/issues/171) . Interesting tool anyway. Could be use to maintain
  ps2dev or ps2homebrew docker volume, allows to be used as shared workspace.
--   [clowder](https://clowder.cat/)
+-   [clowder](https://clowder.cat/) : as repo but yaml, less google/android centric

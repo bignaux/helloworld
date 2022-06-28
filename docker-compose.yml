@@ -4,7 +4,7 @@ services:
     # this allows to not invoke `docker build . -t helloworld`
     build: .
     image: ${APP_NAME}
-    working_dir: ${PS2_WORKSPACE}
+    working_dir: workspace
     command: >
       sh -c "repo init -q --no-clone-bundle -u ${MANIFEST_URL} -b ${MANIFEST_BRANCH} &&
              repo sync -j8 --fetch-submodules ${APP_NAME}.git"
@@ -12,7 +12,7 @@ services:
     #cp helloworld_local_manifest.xml .repo/local_manifests
     #repo sync
     volumes:
-      - ${PS2_WORKSPACE}:${PS2_WORKSPACE}
+      - workspace:/home/genesis/devel/ps2-workspace
 
   make:
     image: ${APP_NAME}
@@ -20,12 +20,14 @@ services:
       - repo
     # see https://github.com/compose-spec/compose-spec/issues/94
     # user: ${CURRENT_UID}
-    working_dir: ${PS2_WORKSPACE}/apps/${APP_NAME}
+    #working_dir: workspace/apps/${APP_NAME}
     command: make ${MAKE_ARGS}
-    volumes:
-      - ${PS2_WORKSPACE}:${PS2_WORKSPACE}
+
 
 #TODO ; it would make sense to add your project to repo manifest and checkout with repo.
 # avoid to use github actions/checkout
 
 #TODO: use image env to let user provide own based + document
+
+volumes:
+    workspace:

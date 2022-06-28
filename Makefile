@@ -11,6 +11,10 @@ EE_CFLAGS += -DAPP_VERSION=\"$(APP_VERSION)\" -DAPP_NAME=\"$(APP_NAME)\"
 EE_INCS += -Ithirdparty/libtap
 BIN2S = $(PS2SDK)/bin/bin2s
 
+# Using -include preprocessor option let you write plateform specific code
+# without modify library source code.
+EE_CFLAGS += -include ps2log.h
+
 # default goal should be first target
 # read https://www.gnu.org/software/make/manual/html_node/Goals.html
 all: $(EE_BIN_PKD)
@@ -37,8 +41,10 @@ endif
 tap.o:
 	$(MAKE) $@ -C ./thirdparty/libtap -f Makefile.PS2
 
+$(EE_BIN): ps2log.h
+
 $(EE_BIN_PKD): $(EE_BIN)
-	@ps2-packer $< $@
+	ps2-packer $< $@ > /dev/null
 
 # TODO ; find another module to illustrate
 udptty.s: $(PS2SDK)/iop/irx/udptty.irx
