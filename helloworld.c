@@ -55,7 +55,15 @@ int main(int argc, char *argv[])
     is(argv[0], "host:helloworld.elf", "running from ps2link");
 
     init_scr();
-    LOG("Hello, World fr00000m %s v.%s !\n", APP_NAME, APP_VERSION);
+    uint64_t index;
+   index = 0;
+   while (index < 99999999)
+   {
+     index++;
+     // LOG("Hello, World fr00000m %s v.%s !\n", APP_NAME, APP_VERSION);
+
+      printf("Hello world %i\n", index);
+   }
 
     SleepThread();
     return 0;

@@ -8,9 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    #- uses: actions/checkout@master
-    #  with:
-    #    submodules: recursive
+    - uses: actions/checkout@master
+      with:
+        submodules: recursive
 
     - name: Git Checkout
       run: docker compose up repo
