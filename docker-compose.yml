@@ -4,7 +4,7 @@ services:
     # this allows to not invoke `docker build . -t helloworld`
     build: .
     image: ${APP_NAME}
-    working_dir: workspace
+    working_dir: /workspace
     command: >
       sh -c "repo init -q --no-clone-bundle -u ${MANIFEST_URL} -b ${MANIFEST_BRANCH} &&
              repo sync -j8 --fetch-submodules ${APP_NAME}.git"
@@ -12,7 +12,7 @@ services:
     #cp helloworld_local_manifest.xml .repo/local_manifests
     #repo sync
     volumes:
-      - workspace:/home/genesis/devel/ps2-workspace
+      - workspace:/workspace
 
   make:
     image: ${APP_NAME}
@@ -30,4 +30,4 @@ services:
 #TODO: use image env to let user provide own based + document
 
 volumes:
-    workspace:
+  workspace:
