@@ -6,7 +6,7 @@ services:
     image: ${APP_NAME}
     working_dir: /workspace
     command: >
-      sh -c "repo init -q --no-clone-bundle -u ${MANIFEST_URL} -b ${MANIFEST_BRANCH} &&
+      sh -c "repo init -q -u ${MANIFEST_URL} -b ${MANIFEST_BRANCH} &&
              repo sync -j8 --fetch-submodules ${APP_NAME}.git"
     #checkout PR version
     #cp helloworld_local_manifest.xml .repo/local_manifests

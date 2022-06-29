@@ -12,9 +12,12 @@ RUN apk add --no-cache build-base git zip gawk ripgrep tzdata python3 py3-pip re
 #ln -snf /usr/share/zoneinfo/Europe/Paris /etc/localtime
 
 # Download public key for github.com
-RUN mkdir -p -m 0700 ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
+#RUN mkdir -p -m 0700 ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
+#RUN chmod 600 /root/.ssh/id_rsa
+#RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
 
 RUN git config --global --add safe.directory /app
-#RUN git config --global user.email "you@example.com"
-#RUN git config --global user.name "Your Name"
+
+RUN git config --global user.email "you@example.com"
+RUN git config --global user.name "Your Name"
 #RUN git config --global commit.gpgsign false
