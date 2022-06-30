@@ -20,7 +20,7 @@ services:
       - repo
     # see https://github.com/compose-spec/compose-spec/issues/94
     # user: ${CURRENT_UID}
-    #working_dir: workspace/apps/${APP_NAME}
+    working_dir: /workspace/apps/${APP_NAME}
     command: make ${MAKE_ARGS}
 
 

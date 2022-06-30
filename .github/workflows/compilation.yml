@@ -17,10 +17,10 @@ jobs:
 
     - name: Run clang-format Linter
       continue-on-error: true
-      run: MAKE_ARGS=check docker compose up
+      run: MAKE_ARGS=check docker compose up make
 
     - name: Compile project
-      run: docker compose up
+      run: docker compose up make
     # commands for compiling your project
 
     # - name: Prepare artifacts

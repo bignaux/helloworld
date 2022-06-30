@@ -16,6 +16,17 @@ just run `docker compose` :
 
     docker compose up make
 
+    * Getting the sources
+
+      ```bash
+      git clone https://github.com/bignaux/helloworld.git
+      repo init -u https://github.com/bignaux/helloworld.git -m helloworld_local_manifest.xml -b main
+      repo sync --force-sync
+      ```    
+
+
+
+
 ## CI/CD strategy and docker workflow
 
 minimise code in github action to avoid :
@@ -40,6 +51,9 @@ issue :
 
 
     repo init -q --no-clone-bundle -u https://github.com/bignaux/helloworld.git
+
+    docker compose down --volumes
+    -v helloworld_workspace:/workspace
 
 some alternatives :
 -   git submodule : when you want shared component, that not you want to add them in each project.
