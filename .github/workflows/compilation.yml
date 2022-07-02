@@ -5,11 +5,11 @@ on:
   pull_request:
 
 jobs:
-  defaults:
-    run:
-      shell: bash
-      working-directory: 'apps/helloworld'
   build:
+    defaults:
+      run:
+        working-directory: 'apps/helloworld'
+        
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
