@@ -15,3 +15,5 @@ RUN git config --global --add safe.directory /app
 RUN git config --global user.email "you@example.com"
 RUN git config --global user.name "Your Name"
 RUN git config --global color.diff auto
+
+ENV PS2_WORKSPACE /workspace
