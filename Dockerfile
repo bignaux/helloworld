@@ -15,8 +15,3 @@ RUN git config --global --add safe.directory /app
 RUN git config --global user.email "you@example.com"
 RUN git config --global user.name "Your Name"
 RUN git config --global color.diff auto
-
-# setting a functionnal PS2_WORKSPACE volume
-VOLUME /workspace
-WORKDIR /workspace
-RUN repo init -q -u https://github.com/bignaux/ps2pkgs.git

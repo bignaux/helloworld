@@ -5,6 +5,10 @@ on:
   pull_request:
 
 jobs:
+  defaults:
+    run:
+      shell: bash
+      working-directory: 'apps/helloworld'
   build:
     runs-on: ubuntu-latest
     steps:
