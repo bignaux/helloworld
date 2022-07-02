@@ -1,6 +1,0 @@
-[submodule "thirdparty/libtap"]
-	path = thirdparty/libtap
-	url = https://github.com/ps2dev/libtap
-[submodule "thirdparty/clang-format-lint-action"]
-	path = thirdparty/clang-format-lint-action
-	url = https://github.com/DoozyX/clang-format-lint-action

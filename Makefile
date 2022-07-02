@@ -5,10 +5,10 @@ TEST = 1
 
 EE_BIN_PKD = $(APP_NAME).elf
 EE_BIN = $(APP_NAME)-UNC.elf
-EE_OBJS = $(APP_NAME).o thirdparty/libtap/tap.o
+EE_OBJS = $(APP_NAME).o $PS2_WORKSPACE/libtap/tap.o
 EE_LIBS = -ldebug -lc
 EE_CFLAGS += -DAPP_VERSION=\"$(APP_VERSION)\" -DAPP_NAME=\"$(APP_NAME)\"
-EE_INCS += -Ithirdparty/libtap
+EE_INCS += -I$PS2_WORKSPACE/libtap
 BIN2S = $(PS2SDK)/bin/bin2s
 
 # Using -include preprocessor option let you write plateform specific code
@@ -23,7 +23,7 @@ mostlyclean:
 	rm -f $(EE_BIN) $(EE_BIN_PKD) $(EE_OBJS)
 
 clean: mostlyclean
-	$(MAKE) clean -C ./thirdparty/libtap -f Makefile.PS2
+	$(MAKE) clean -C $(PS2_WORKSPACE)/libtap -f Makefile.PS2
 
 # Enable debug mode
 ifeq ($(DEBUG),1)
@@ -39,7 +39,7 @@ EE_CFLAGS += -DTEST
 endif
 
 tap.o:
-	$(MAKE) $@ -C ./thirdparty/libtap -f Makefile.PS2
+	$(MAKE) $@ -C $(PS2_WORKSPACE)/libs/libtap -f Makefile.PS2
 
 $(EE_BIN): ps2log.h
 
@@ -58,12 +58,12 @@ reset:
 
 # hackish but let you check/format same way both CI and your own env.
 # and manage .clang-format-ignore file properly.
-cfla = thirdparty/clang-format-lint-action
+cfla = $(PS2_WORKSPACE)/tools/clang-format-lint-action
 check:
 	@python3 $(cfla)/run-clang-format.py --clang-format-executable $(cfla)/clang-format/clang-format14 -r .
 
 format:
-	#find . -path "./thirdparty/*" -prune -regex '.*\.\(c\|h\)' -o -exec clang-format -i {} \;
+	#find . -path "$PS2_WORKSPACE/*" -prune -regex '.*\.\(c\|h\)' -o -exec clang-format -i {} \;
 	@python3 $(cfla)/run-clang-format.py --clang-format-executable $(cfla)/clang-format/clang-format14 -r . -i true
 
 include $(PS2SDK)/samples/Makefile.pref

@@ -10,17 +10,17 @@ jobs:
     steps:
     - uses: actions/checkout@master
       with:
-        submodules: recursive
+        path: 'apps/helloworld'
 
-    - name: Git Checkout
-      run: docker compose up repo
+    - name: PS2_WORKSPACE Checkout
+      run: docker compose up checkout
 
     - name: Run clang-format Linter
-      continue-on-error: true
-      run: MAKE_ARGS=check docker compose up make
+      #continue-on-error: true
+      run: MAKE_ARGS=check docker compose up build
 
     - name: Compile project
-      run: docker compose up make
+      run: docker compose up build
     # commands for compiling your project
 
     # - name: Prepare artifacts

@@ -14,7 +14,7 @@ It uses [ps2homebrew's .github](https://github.com/ps2homebrew/.github) as base 
 
 just run `docker compose` :
 
-    docker compose up make
+    docker compose up build
 
     * Getting the sources
 
