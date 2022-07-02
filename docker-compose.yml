@@ -6,11 +6,9 @@ services:
     image: ${APP_NAME}
     working_dir: /workspace
     command: >
-      sh -c "repo init -m apps/${APP_NAME}/helloworld_local_manifest.xml &&
+      sh -c "RUN repo init -q -u https://github.com/bignaux/ps2pkgs.git &&
+             repo init -m apps/${APP_NAME}/helloworld_local_manifest.xml &&
              repo sync --fail-fast"
-    #checkout PR version
-    #cp helloworld_local_manifest.xml .repo/local_manifests
-    #repo sync
     volumes:
       - workspace:/workspace
 
