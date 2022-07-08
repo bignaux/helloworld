@@ -7,7 +7,8 @@ services:
     working_dir: /workspace
     command: >
       sh -c "repo init -q -u https://github.com/bignaux/ps2pkgs.git &&
-             repo init -m apps/${APP_NAME}/helloworld_local_manifest.xml &&
+             mkdir -p .repo/local_manifests/ &&
+             ln -s apps/${APP_NAME}/helloworld.xml .repo/local_manifests/ &&
              repo sync --fail-fast"
     volumes:
       - workspace:/workspace

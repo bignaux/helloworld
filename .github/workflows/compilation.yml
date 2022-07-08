@@ -9,14 +9,14 @@ jobs:
     defaults:
       run:
         working-directory: 'apps/helloworld'
-        
+
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-      with:
-        path: 'apps/helloworld'
+    #  with:
+    #    path: 'apps/helloworld'
 
-    - name: PS2_WORKSPACE Checkout
+    - name: Checkout PS2_WORKSPACE
       run: docker compose up checkout
 
     - name: Run clang-format Linter

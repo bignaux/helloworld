@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # instead of "ps2dev/ps2dev:latest" you can use different tags, for example for old projects you can use "ps2dev/ps2dev:v1.0"
+# ps2dev -> ps2sdk-ports -> gskit -> ps2sdk -> ps2toolchain -> ps2toolchain-*
 FROM ps2dev/ps2dev:latest
 
 MAINTAINER Bignaux Ronan ronan@aimao.org

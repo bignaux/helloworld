@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <extend-project name="DoozyX/clang-format-lint-action.git" groups="default"/>
+  <extend-project name="libtap.git" groups="default">
+  <copyfile src="libs/libtap" dest="truc/libtap"/>
+  </extend-project>
+</manifest>
